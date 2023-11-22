@@ -95,7 +95,7 @@ export const ThingCard: FC<{ thing: Thing }> = ({ thing }) => {
           alignItems: "flex-start",
         }}
       >
-        <p style={{ fontWeight: 700, fontSize: "2rem", margin: 0 }}>
+        <p style={{ fontWeight: 700, fontSize: "1.5rem", margin: 0, textAlign: "left" }}>
           {thing.content}
         </p>
         <div style={{ display: "flex", gap: "0.5rem", width: "100%" }}>
