@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useAddThing } from "./api/useData";
+import music from "./skuffle.mp3";
 
 export const NewThing = () => {
   const [value, setValue] = useState("");
   const [author, setAuthor] = useState("Calum");
 
   const addThing = useAddThing();
+
+  const audio = useRef<HTMLAudioElement | null>(null);
 
   return (
     <form
@@ -27,6 +30,17 @@ export const NewThing = () => {
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
+        }}
+        onFocus={() => {
+          audio.current = new Audio(music);
+
+          audio.current.play();
+        }}
+        onBlur={() => {
+          if (audio.current) {
+            audio.current.pause();
+            audio.current.currentTime = 0;
+          }
         }}
       />
       <div className="new-thing-buttons">
