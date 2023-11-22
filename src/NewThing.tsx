@@ -15,13 +15,17 @@ export const NewThing = () => {
       className="new-thing-container"
       onSubmit={(e) => {
         e.preventDefault();
-        if (value !== "") {
-          addThing.mutate({
-            author,
-            content: value,
-            created: new Date().toISOString(),
-            completed: "",
-          });
+        if (value !== "" && addThing.status !== "pending") {
+          addThing
+            .mutateAsync({
+              author,
+              content: value,
+              created: new Date().toISOString(),
+              completed: "",
+            })
+            .then(() => {
+              setValue("");
+            });
         }
       }}
     >
