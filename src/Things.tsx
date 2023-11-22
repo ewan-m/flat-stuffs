@@ -6,6 +6,8 @@ import {
   useThings,
 } from "./api/useData";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Ewan from "../public/ewan.jpg";
+import Calum from "../public/calum.jpg";
 
 export const formatDate = (isoString: string) => {
   const date = new Date(isoString);
@@ -55,7 +57,7 @@ export const ThingCard: FC<{ thing: Thing }> = ({ thing }) => {
               filter: thing.completed !== "" ? "grayscale(1)" : undefined,
             }}
             className="thing-image"
-            src="/ewan.jpg"
+            src={Ewan}
           />
         )}
         {thing.author === "Calum" && (
@@ -64,7 +66,7 @@ export const ThingCard: FC<{ thing: Thing }> = ({ thing }) => {
               filter: thing.completed !== "" ? "grayscale(1)" : undefined,
             }}
             className="thing-image"
-            src="/calum.jpg"
+            src={Calum}
           />
         )}
         {thing.completed !== "" && (
