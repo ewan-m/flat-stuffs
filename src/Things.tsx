@@ -6,8 +6,8 @@ import {
   useThings,
 } from "./api/useData";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import Ewan from "../public/ewan.jpg";
-import Calum from "../public/calum.jpg";
+import Ewan from "./ewan.jpg"
+import Calum from "./calum.jpg";
 
 export const formatDate = (isoString: string) => {
   const date = new Date(isoString);
