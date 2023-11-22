@@ -101,6 +101,7 @@ export const ThingCard: FC<{ thing: Thing }> = ({ thing }) => {
             fontSize: "1.5rem",
             margin: 0,
             textAlign: "left",
+            textDecoration: thing.completed !== "" ? "line-through" : undefined,
           }}
         >
           {thing.content}
